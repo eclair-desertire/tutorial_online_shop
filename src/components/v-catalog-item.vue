@@ -2,10 +2,10 @@
     <div class="v-catalog-item">
         <h1>{{product.title}}</h1>
         <h2>{{product.category}}</h2>
-        <img :src="product.image" style="width: 100%;" alt="">
+        <img :src="product.image" style="width: 25%;" alt="">
         <h2>Price: {{product.price}}</h2>
         <p>{{product.description}}</p>
-        <button>Add to Cart</button>
+        <button @click="sendDataToParent">Add to Cart</button>
     </div>
 </template>
 
@@ -26,7 +26,12 @@ export default{
     data(){
         return{}
     },
-    computed:{}
+    computed:{},
+    methods:{
+        sendDataToParent(){
+            this.$emit('sendDataToParent',this.product.title)
+        }
+    }
 }
 </script>
 
